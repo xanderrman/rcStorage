@@ -1,48 +1,25 @@
-source ~/.profile
-source ~/env/go/bash
-source ~/env/scripts/z/z.sh
-#if not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
-export CLICOLOR=1
-
-#add colors to commands
-alias grep='grep --color'
-alias tree='tree -C'
-
-alias cp='cp -i'
-alias l='ls -lGF'
-alias c='clear'
-alias cl='clear;l'
-
-alias mouse='xset m 0/0 1'
-alias showfiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
-alias hidefiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
-alias tmuxtabs='tmux -CC attach'
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function
-
-#PS1='\w\$ '
+export GOPATH=$HOME/go
+. $HOME/.env/z.sh
+. $HOME/.env/bosh.sh
 PS1='\[\e[0;36m\]┌─\[\e[1;37m\][\u@\h]\[\e[0m\]\[\e[0;36m\]─\[\e[0;93m\](\w)\n\[\e[0;36m\]└─\[\e[1;32m\][\A]\[\e[0m\]\$ '
+alias ls='ls -G'
+alias ll='ls -l'
+source <(kubectl completion bash)
 
-alias pcf19='cf login -a api.system.pcf19.starkandwayne.com --skip-ssl-validation -u admin -p iaMNH7WfeWpVuAvPobh-a_tD3jzJxGeQ'
-
-#searches the current directory recursively for the string passed in as an arg
-searchFor() { grep -R $1 .; }
-
-#packages, makes and deploys a bosh dev release
-alias boshdev='bosh create release --force && bosh upload release && templates/make_manifest warden && bosh -n deploy'
-alias boshliteup='cd ~/workspace/bosh-lite/ && vagrant up && cd ~/workspace/'
-alias openstack1ssh='ssh root@10.200.128.21'
+alias boshcnu='bosh create-release --timestamp-version --force && bosh upload-release'
+alias kubecontainers="kubectl get pods --all-namespaces -o=jsonpath='{range .items[*]}{\"\n\"}{.metadata.name}{\":\t\"}{range .spec.containers[*]}{.image}{\", \"}{end}{end}' | sort"
+. $HOME/.env/git-config
+complete -o default -F __start_kubectl kubectl
 
 
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$HOME/env/scripts/
-export JAVA_HOME='/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/'
+export KUBECONFIG=$HOME/workspace/kubernetes/kubes/boomi-lab.yml
+export BASH_COMPLETION_COMPAT_DIR=/usr/local/etc/bash_completion.d
+[[ -r /usr/local/etc/profile.d/bash_completion.sh ]] && . /usr/local/etc/profile.d/bash_completion.sh
+source <(helm completion bash)
+alias k='kubectl'
 
-export GITHUB_KEY="7760ef75ba49c9699114"
-export GITHUB_SECRET="272bf643a813760f1f0a79b9153fcef4ca629837"
-export SESSION_SECRET="sekret"
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/alex/google-cloud-sdk/path.bash.inc' ]; then . '/Users/alex/google-cloud-sdk/path.bash.inc'; fi
 
-
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/alex/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/alex/google-cloud-sdk/completion.bash.inc'; fi
