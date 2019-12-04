@@ -1,9 +1,11 @@
 export GOPATH=$HOME/go
 . $HOME/.env/z.sh
 . $HOME/.env/bosh.sh
-PS1='\[\e[0;36m\]┌─\[\e[1;37m\][\u@\h]\[\e[0m\]\[\e[0;36m\]─\[\e[0;93m\](\w)\n\[\e[0;36m\]└─\[\e[1;32m\][\A]\[\e[0m\]\$ '
+PS1='\[\e[0;36m\]┌─\[\e[1;34m\][\u@\h]\[\e[0m\]\[\e[0;36m\]─\[\e[0;93m\](\w)\n\[\e[0;36m\]└─\[\e[1;32m\][\A]\[\e[0m\]\$ '
 alias ls='ls -G'
 alias ll='ls -l'
+alias la='ls -la'
+
 source <(kubectl completion bash)
 
 alias boshcnu='bosh create-release --timestamp-version --force && bosh upload-release'
