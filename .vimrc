@@ -15,15 +15,19 @@
 "" :highlight ColorColumn ctermbg=blue guibg=blue
 "" set colorcolumn=80   "put a line at column 80 
 
-" Plugins will be downloaded under the specified directory.
+" Install vim plug if it's not there
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+" vim-plug stuff
 call plug#begin('~/.vim/plugged')
 
-" Declare the list of plugins.
 Plug 'tpope/vim-sensible'
 Plug 'junegunn/seoul256.vim'
 Plug 'mattn/emmet-vim'
 
-" List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 "tabs are bad mkay
