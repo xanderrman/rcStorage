@@ -36,7 +36,14 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 
-""jk rebound to escape
+"jj rebound to escape
+"if you're here for vscode it looks like this:
+""vim.insertModeKeyBindings": [
+"        {
+"            "before": ["j", "j"],
+"            "after": ["<Esc>"]
+"        }
+"    ]
 inoremap jj <esc>
 "
 set background=dark
