@@ -1,3 +1,4 @@
+
 // To view the default settings, hold "alt" while clicking on the "Settings" button.
 // For documentation on these settings, see: https://aka.ms/terminal-documentation
 
@@ -14,7 +15,8 @@
             // Put settings here that you want to apply to all profiles
             "fontFace": "Consolas",
             "fontSize": 13,
-            "colorScheme": "Dracula"
+            "colorScheme": "Dracula",
+            "cursorShape": "emptyBox"
         },
         "list":
         [
