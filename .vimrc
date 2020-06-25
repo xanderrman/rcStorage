@@ -1,40 +1,4 @@
-"syntax enable        "enable syntax highlighting
-"
-"set background=dark
-"set tabstop=4        "number of visual spaces per TAB
-"set shiftwidth=4
-"set softtabstop=4    "number of spaces in tab when editing
-"set expandtab        "tabs are spaces
-"set number           "show line numbers
-"set showcmd          "show command in bottom bar
-"set wildmenu         "visual autocomplete for command menu
-"set showmatch        "highlight matching brackets/parens
-"set incsearch        "search as characters are entered
-"set hlsearch         "highlight matches
-""set mouse=a           "enable mouse use
-"" :highlight ColorColumn ctermbg=blue guibg=blue
-"" set colorcolumn=80   "put a line at column 80 
 
-" Install vim plug if it's not there
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-" vim-plug stuff
-call plug#begin('~/.vim/plugged')
-
-Plug 'tpope/vim-sensible'
-Plug 'junegunn/seoul256.vim'
-Plug 'mattn/emmet-vim'
-
-call plug#end()
-
-"tabs are bad mkay
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set expandtab
 
 "jj rebound to escape
 "if you're here for vscode it looks like this:
@@ -48,10 +12,12 @@ inoremap jj <esc>
 "
 set background=dark
 set t_Co=256
+
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+
 "
-"nnoremap <F2> :set invpaste paste?<CR>
-"set pastetoggle=<F2>
-"set showmode
+set showmode
 
 "########### FILETYPE STUFF ############
 filetype plugin indent on
