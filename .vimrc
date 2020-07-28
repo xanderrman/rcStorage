@@ -13,6 +13,9 @@ inoremap jj <esc>
 set background=dark
 set t_Co=256
 
+" use the system clipboard by default when yanking
+set clipboard=unnamedplus
+
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 
@@ -56,7 +59,6 @@ set number
 set numberwidth=1
 
 " Turn on syntax higlighting on a dark background.
-" Some update must have turned this off, jrh - 2008-11-28
 syntax on
 
 " Turn on marker foldmethod, to make things easier
