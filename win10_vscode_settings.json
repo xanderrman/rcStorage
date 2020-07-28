@@ -1,0 +1,69 @@
+{
+    "git.autofetch": true,
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "workbench.colorTheme": "One Monokai",
+    "explorer.confirmDelete": false,
+    "terminal.integrated.commandsToSkipShell": [
+        "-workbench.action.quickOpen"
+    ],
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "JetBrains Mono, Consolas",
+    "rust-client.engine": "rust-analyzer",
+    "extensions.ignoreRecommendations": true,
+    "rust.all_targets": false,
+    "rust.build_on_save": true,
+    "editor.dragAndDrop": false,
+    "editor.mouseWheelZoom": true,
+    "editor.renderControlCharacters": true,
+    "editor.cursorBlinking": "phase",
+    "editor.formatOnSave": true,
+    "files.eol": "\n",
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.editor.labelFormat": "medium",
+    "workbench.editor.limit.enabled": true,
+    "workbench.editor.limit.value": 6,
+    "workbench.settings.openDefaultKeybindings": true,
+    "explorer.incrementalNaming": "smart",
+    "search.smartCase": true,
+    "terminal.integrated.confirmOnExit": true,
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.scrollback": 100,
+    "crates.upToDateDecorator": "🦀",
+    "git.autoStash": true,
+    "git.confirmSync": false,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "html.format.endWithNewline": true,
+    "editor.fontSize": 15,
+    "explorer.confirmDragAndDrop": false,
+    "rust-analyzer.inlayHints.typeHints": false,
+    "editor.scrollBeyondLastLine": false,
+    "vscode-neovim.neovimPath": "C:\\tools\\neovim\\Neovim\\bin\\nvim.exe",
+    "rust-analyzer.completion.addCallArgumentSnippets": false,
+    "rust-analyzer.inlayHints.parameterHints": false,
+    "[rust]": {
+        "editor.defaultFormatter": "matklad.rust-analyzer"
+    },
+    "rust-analyzer.completion.postfix.enable": false,
+    "rust-analyzer.hoverActions.run": false,
+    "rust-analyzer.updates.askBeforeDownload": false,
+    "rust-analyzer.updates.channel": "nightly",
+    "rust-analyzer.inlayHints.enable": false,
+    "rust-analyzer.inlayHints.chainingHints": false,
+    "rust-analyzer.runnableEnv": {
+        "DATABASE_URL": "postgresql://admin:password@localhost:5432/app"
+    },
+}
