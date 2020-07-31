@@ -1,5 +1,5 @@
 . $HOME/.env/z.sh
-. $HOME/.env/git-config
+. $HOME/.env/git-config.sh
 
 
 ### COLORS ###
