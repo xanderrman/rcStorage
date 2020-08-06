@@ -15,3 +15,4 @@ alias ll='ls -alF'
 alias la='ls -A'
 
 alias dockrun='docker run -it --rm'
+alias pgdocker='docker exec -it database psql -h 127.0.0.1 -p 5432 -U admin -d Database'
