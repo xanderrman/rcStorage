@@ -20,9 +20,24 @@ alias pgdocker='docker exec -it database psql -h 127.0.0.1 -p 5432 -U admin -d D
 # use this when running an x server on windows for x forwarding from wsl
 # taken from: https://github.com/hubisan/emacs-wsl
 # make a windows shortcut with the following as the target, and run it before using the alias
+# WSL1
 # "C:\Program Files\VcXsrv\vcxsrv.exe" :0 -multiwindow -clipboard -wgl
-alias guimacs='
-export DISPLAY=:0.0
+# WSL2
+# "C:\Program Files\VcXsrv\vcxsrv.exe" :0 -multiwindow -clipboard -wgl -ac
+
+# WSL1
+# alias guimacs='
+# export DISPLAY=:0.0
+# export LIBGL_ALWAYS_INDIRECT=1
+# setxkbmap -layout us
+# setsid emacs
+# exit
+# '
+
+# WSL2
+aleas guimacs='
+export DISPLAY_NUMBER="0.0"
+export DISPLAY=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}'):$DISPLAY_NUMBER
 export LIBGL_ALWAYS_INDIRECT=1
 setxkbmap -layout us
 setsid emacs
