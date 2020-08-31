@@ -24,6 +24,7 @@ alias pgdocker='docker exec -it database psql -h 127.0.0.1 -p 5432 -U admin -d D
 # "C:\Program Files\VcXsrv\vcxsrv.exe" :0 -multiwindow -clipboard -wgl
 # WSL2
 # "C:\Program Files\VcXsrv\vcxsrv.exe" :0 -multiwindow -clipboard -wgl -ac
+# you then have to go run Windows Defender Firewall with Advanced Security and allow vcxsrv network (I narrowed it to just the LAN through the "interface types"->"customize" menu)
 
 # WSL1
 # alias guimacs='
@@ -35,9 +36,9 @@ alias pgdocker='docker exec -it database psql -h 127.0.0.1 -p 5432 -U admin -d D
 # '
 
 # WSL2
-export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
 export LIBGL_ALWAYS_INDIRECT=1
-setxkbmap -layout us
+# setxkbmap -layout us
 alias guimacs='
 setsid emacs
 exit
