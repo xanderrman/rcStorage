@@ -35,11 +35,10 @@ alias pgdocker='docker exec -it database psql -h 127.0.0.1 -p 5432 -U admin -d D
 # '
 
 # WSL2
-alias guimacs='
-export DISPLAY_NUMBER="0.0"
-export DISPLAY=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}'):$DISPLAY_NUMBER
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
 export LIBGL_ALWAYS_INDIRECT=1
 setxkbmap -layout us
+alias guimacs='
 setsid emacs
 exit
 '
