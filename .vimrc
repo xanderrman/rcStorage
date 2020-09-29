@@ -22,6 +22,11 @@ set foldmethod=syntax
 set foldnestmax=1
 set foldlevel=99
 
+" tabs are 4 spaces
+set tabstop=4
+set shiftwidth=0
+set expandtab
+
 " use the system clipboard by default when yanking
 set clipboard=unnamedplus
 
