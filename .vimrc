@@ -19,6 +19,8 @@ if !exists("g:syntax_on")
     syntax enable
 endif
 set foldmethod=syntax
+set foldnestmax=1
+set foldlevel=99
 
 " use the system clipboard by default when yanking
 set clipboard=unnamedplus
