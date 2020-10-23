@@ -1,3 +1,5 @@
+export PATH=$PATH:/usr/local/go/bin
+
 . $HOME/.env/z.sh
 . $HOME/.env/git-config.sh
 
@@ -10,36 +12,32 @@ alias ls='ls --color=auto'
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-PS1='\[\e[0;36m\]┌─\[\e[1;34m\][\u@\h]\[\e[0m\]\[\e[0;36m\]─\[\e[0;93m\](\w)\n\[\e[0;36m\]└─\[\e[1;32m\][\A]\[\e[0m\]\$ '
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+# export PS1="\u@\h \[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
+
+export PS1="\[\e[0;36m\]┌─\[\e[1;34m\][\u@\h]\[\e[0m\]\[\e[0;36m\]─\[\e[0;93m\](\w)\[\e[0;36m\]─\[\e[35m\]\$(parse_git_branch)\n\[\e[0;36m\]└─\[\e[1;32m\][\A]\[\e[0m\]\$ "
+PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 alias ll='ls -alF'
 alias la='ls -A'
+alias bat='batcat'
 
 alias rundocker='docker run -it --rm'
-alias pgdocker='docker exec -it database psql -h 127.0.0.1 -p 5432 -U admin -d Database'
+alias pgdocker='docker exec -it database psql -h 127.0.0.1 -p 5432 -U admin -d Postgres'
+alias newcompose='docker container kill $(docker container ls -q); docker container prune -f; docker volume rm $(docker volume ls -q); docker-compose up --detach; docker-compose logs -f'
 
-# use this when running an x server on windows for x forwarding from wsl
-# taken from: https://github.com/hubisan/emacs-wsl
-# make a windows shortcut with the following as the target, and run it before using the alias
-# WSL1
-# "C:\Program Files\VcXsrv\vcxsrv.exe" :0 -multiwindow -clipboard -wgl
-# WSL2
-# "C:\Program Files\VcXsrv\vcxsrv.exe" :0 -multiwindow -clipboard -wgl -ac
-# you then have to go run Windows Defender Firewall with Advanced Security and allow vcxsrv network (I narrowed it to just the LAN through the "interface types"->"customize" menu)
-
-# WSL1
-# alias guimacs='
-# export DISPLAY=:0.0
-# export LIBGL_ALWAYS_INDIRECT=1
-# setxkbmap -layout us
-# setsid emacs
-# exit
-# '
-
-# WSL2
-export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
+# x server to windows
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
 export LIBGL_ALWAYS_INDIRECT=1
 # setxkbmap -layout us
 alias guimacs='
 setsid emacs
 exit
 '
+
+alias firefox='
+setsid firefox
+exit
+'
+
