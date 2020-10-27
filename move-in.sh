@@ -10,7 +10,7 @@ pushd ~/tmp/movein
 brew install \
   vault jq kubectl kubernetes-helm \
   go git tcpdump tmux tmate docker sipcalc tree watch \
-  tldr bat tig coreutils
+  tldr bat tig coreutils ripgrep
 brew cask install \
   visual-studio-code emacs iterm2 slack tunnelblick google-chrome \
   zoomus docker
