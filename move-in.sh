@@ -8,7 +8,7 @@ pushd ~/tmp/movein
 # install homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install \
-  vault jq kubectl kubernetes-helm \
+  vault jq fx yh kubectl kubernetes-helm \
   go git tcpdump tmux tmate docker sipcalc tree watch \
   tldr bat tig coreutils ripgrep
 brew cask install \
