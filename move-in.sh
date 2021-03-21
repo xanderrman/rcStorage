@@ -26,3 +26,9 @@ rm -rf ~/tmp/movein
 echo "you're most of the way there, you just gotta go download some stuff still..."
 echo "https://www.nerdfonts.com/font-downloads"
 echo "https://github.com/lensapp/lens/releases"
+echo
+echo "grab the tarball zip of master from..."
+echo "https://github.com/arielf/cuts/"
+echo
+echo "grab this file too (also next time automate this you goon)"
+echo "https://github.com/rupa/z/blob/master/z.sh"
