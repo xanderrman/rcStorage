@@ -10,7 +10,9 @@ pushd ~/tmp/movein
 
 brew install \
   # CLI tools
-  jq jsonlint fx yh yamllint tcpdump tmux tmate sipcalc tree watch tldr bat tig ripgrep kubectx htop \
+  jq jsonlint fx yh yamllint tcpdump tmux tmate sipcalc \
+  tree watch tldr bat tig ripgrep kubectx htop httpie \
+  moreutils icdiff
   # big boi CLI clients
   vault kubernetes-cli helm vault terraform docker mysql \
   #programmer things
