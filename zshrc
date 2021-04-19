@@ -136,6 +136,18 @@ export PATH="/usr/local/opt/luajit-openresty/bin:$PATH"
 
 
 #####     FUNCTIONS     #####
+rds_tags() {
+ARNS=$(aws rds describe-db-instances | jq -r '.DBInstances[].DBInstanceArn')
+  for arn in ${ARNS}
+  do
+    NAME=$(echo ${arn} | cut -d: -f7)
+    echo ${NAME}
+    echo "---"
+    aws rds list-tags-for-resource --resource-name ${arn} | jq -r '.TagList[] | "\(.Key): \(.Value)"'
+    echo "---"
+    echo ""
+  done
+}
 encrypt() {
   # Usage: $ encrypt <filename>
   docker run -e SECRET="$(cat $1)" -it elis/alpine-openssl:3.4 /bin/sh -c "echo \$SECRET | openssl enc -e -aes-256-cbc -a -salt && echo"
