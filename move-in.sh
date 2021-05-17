@@ -25,11 +25,15 @@ brew install --cask \
 popd ~/tmp/movein
 rm -rf ~/tmp/movein
 
+# allow holding down a key to repeat it on macos
+defaults write -g ApplePressAndHoldEnabled -bool false
+
 echo "you're most of the way there, you just gotta go download some stuff still..."
 echo "https://www.nerdfonts.com/font-downloads"
 echo "https://github.com/lensapp/lens/releases"
 echo
 echo "grab the tarball zip of master from..."
+echo "that said maybe check if this is in moreutils first :thinking_face:"
 echo "https://github.com/arielf/cuts/"
 echo
 echo "grab this file too (also next time automate this you goon)"
